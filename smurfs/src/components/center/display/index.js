@@ -31,6 +31,9 @@ const Display =()=> {
 
 
 
+const [smurfName,setSmurfName] = useState('')
+const [smurfAge,setSmurfAge] = useState(Number)
+const [smurfHeight,setSmurfHeight] = useState('')
 const [smurfs,setSmurfs] = useState([])
 
   useEffect(()=>{
@@ -43,19 +46,56 @@ const [smurfs,setSmurfs] = useState([])
 
 
 
-  const addSmurf = (e) =>{
+  const addSmurfName = (e) =>{
+        e.preventDefault()
+
+       setSmurfName(e.target.value)
+  }
+
+    const addSmurfAge = (e) =>{
+        e.preventDefault()
+
+        //  axios.post("http://localhost:3333/smurfs/").then(wtf=>{
+        //   setSmurfs(wtf.data)
+        // })
+ setSmurfAge(e.target.value)
+  }
+
+    const addSmurfHeight = (e) =>{
         e.preventDefault()
 
         //  axios.post("http://localhost:3333/smurfs/").then(wtf=>{
         //   setSmurfs(wtf.data)
         // })
 
-        console.log(e)
+         setSmurfHeight(e.target.value)
+  }
+
+    const addSmurf = (e) =>{
+        e.preventDefault()
+
+         axios.post("http://localhost:3333/smurfs/",{
+          name:smurfName,
+          age:smurfAge,
+          height:smurfHeight,
+         }).then(ok=>{
+          console.log("after post",ok.data)
+
+          setSmurfs([...smurfs,ok.data])
+         })
+
+        console.log(e.target.children)
+        console.log({
+          name:smurfName,
+          age:smurfAge,
+          height:smurfHeight,
+         })
+
   }
 
     return (
       <Container>
-      <SmurfContext.Provider value={{smurfs, addSmurf}}>
+      <SmurfContext.Provider value={{smurfs,addSmurfName, addSmurfAge,addSmurfHeight, addSmurf}}>
       <div style={boxWithTabs}>{
         smurfs?(
           smurfs.map(smurf=>{
