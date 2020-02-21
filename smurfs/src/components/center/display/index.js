@@ -52,31 +52,66 @@ const [smurfs,setSmurfs] = useState([])
 
 
 
-
+const addSmurfNameOnlyLetters = (e) =>{
+         if(e.which > 64 && e.which < 91 || e.which === 8){
+            return true
+          }else{
+            e.preventDefault()
+          }
+}
 
   const addSmurfName = (e) =>{
-        e.preventDefault()
 
-       setSmurfName(e.target.value)
+          if(e.target.value.match(/[A-z]/i))
+      return setSmurfName(e.target.value)
   }
 
-    const addSmurfAge = (e) =>{
+
+
+
+
+
+    const addSmurfAgeOnlyNumbers = (e) =>{
+
+          if(e.which > 47 && e.which < 58 || e.which === 8){
+            return true
+          }else{
+            e.preventDefault()
+          }
+
+  }
+
+   const addSmurfAge = (e) =>{
         e.preventDefault()
 
-        //  axios.post("http://localhost:3333/smurfs/").then(wtf=>{
-        //   setSmurfs(wtf.data)
-        // })
- setSmurfAge(e.target.value)
+          if(e.target.value.match(/[0-9]/i)){
+            return true
+          }
+
+      return setSmurfAge(e.target.value)
+  }
+
+
+
+
+
+
+
+  const addSmurfHeightOnlyCMlengths = (e) =>{
+
+          if(e.which > 47 && e.which < 58 &&
+            e.which > 64 && e.which < 91
+            || e.which === 8){
+            return true
+          }else{
+            e.preventDefault()
+          }
   }
 
     const addSmurfHeight = (e) =>{
-        e.preventDefault()
-
-        //  axios.post("http://localhost:3333/smurfs/").then(wtf=>{
-        //   setSmurfs(wtf.data)
-        // })
-
-         setSmurfHeight(e.target.value)
+       
+  
+      return setSmurfAge(e.target.value)
   }
 
     const addSmurf = (e) =>{
@@ -86,10 +121,8 @@ const [smurfs,setSmurfs] = useState([])
           name:smurfName,
           age:smurfAge,
           height:smurfHeight,
-         }).then(ok=>{
-          console.log("after post",ok.data)
-
-          setSmurfs([...smurfs,ok.data])
+         }).catch(err=>{
+          alert(`please fill it in at least halfway right: ${err}`)
          })
 
         console.log(e.target.children)
@@ -103,7 +136,7 @@ const [smurfs,setSmurfs] = useState([])
 
     return (
       <Container>
-      <SmurfContext.Provider value={{smurfs,addSmurfName, addSmurfAge,addSmurfHeight, addSmurf}}>
+      <SmurfContext.Provider value={{smurfs,addSmurfName, addSmurfAgeOnlyNumbers,addSmurfAge,addSmurfHeight, addSmurf}}>
       <div style={boxWithTabs}>{
         smurfs?(
           smurfs.map(smurf=>{
