@@ -5,6 +5,7 @@ import SmurfContext from '../contexts/'
 import AddSmurf from '../form/'
 import { Alert , Container} from 'reactstrap';
 import bg from '../../img/bg.jpg'
+import nerdSumrf from '../../img/brainy-smurf.png'
 
 
 
@@ -52,66 +53,32 @@ const [smurfs,setSmurfs] = useState([])
 
 
 
-const addSmurfNameOnlyLetters = (e) =>{
-         if(e.which > 64 && e.which < 91 || e.which === 8){
-            return true
-          }else{
-            e.preventDefault()
-          }
-}
+
 
   const addSmurfName = (e) =>{
-
-          if(e.target.value.match(/[A-z]/i))
-      return setSmurfName(e.target.value)
-  }
-
-
-
-
-
-
-    const addSmurfAgeOnlyNumbers = (e) =>{
-
-          if(e.which > 47 && e.which < 58 || e.which === 8){
-            return true
-          }else{
-            e.preventDefault()
-          }
-
-  }
-
-   const addSmurfAge = (e) =>{
         e.preventDefault()
 
-          if(e.target.value.match(/[0-9]/i)){
-            return true
-          }
 
-      return setSmurfAge(e.target.value)
+       setSmurfName(e.target.value)
   }
 
+    const addSmurfAge = (e) =>{
+        e.preventDefault()
 
-
-
-
-
-
-  const addSmurfHeightOnlyCMlengths = (e) =>{
-
-          if(e.which > 47 && e.which < 58 &&
-            e.which > 64 && e.which < 91
-            || e.which === 8){
-            return true
-          }else{
-            e.preventDefault()
-          }
+        //  axios.post("http://localhost:3333/smurfs/").then(wtf=>{
+        //   setSmurfs(wtf.data)
+        // })
+ setSmurfAge(e.target.value)
   }
 
     const addSmurfHeight = (e) =>{
-       
-  
-      return setSmurfAge(e.target.value)
+        e.preventDefault()
+
+        //  axios.post("http://localhost:3333/smurfs/").then(wtf=>{
+        //   setSmurfs(wtf.data)
+        // })
+
+         setSmurfHeight(e.target.value)
   }
 
     const addSmurf = (e) =>{
@@ -136,14 +103,14 @@ const addSmurfNameOnlyLetters = (e) =>{
 
     return (
       <Container>
-      <SmurfContext.Provider value={{smurfs,addSmurfName, addSmurfAgeOnlyNumbers,addSmurfAge,addSmurfHeight, addSmurf}}>
+      <SmurfContext.Provider value={{smurfs,addSmurfName, addSmurfAge,addSmurfHeight, addSmurf}}>
       <div style={boxWithTabs}>{
         smurfs?(
           smurfs.map(smurf=>{
             return(
 
           <Alert color="primary" key={smurf.id} style={tab}>
-         Name: {smurf.name} 
+        <img src={nerdSumrf} width='30px' height='30px' />Name: {smurf.name} 
          <br />
           Age: {smurf.age} 
          <br />
