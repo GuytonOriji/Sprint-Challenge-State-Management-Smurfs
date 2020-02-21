@@ -12,8 +12,10 @@ const navbar ={
 const lilnavbar ={
 	flex:"1",
 	fontSize:"2rem",
-	fontWeight:"bolder"
-
+	fontWeight:"bolder",
+   display:'flex',
+  justifyContent:'flex-end',
+  alignItems:"center",
 }
 
 
@@ -40,8 +42,6 @@ class Header extends React.Component {
       	</figure>
       		<Navbar className="navbar" style={lilnavbar}>
       		<NavLink to='/'>Home</NavLink>
-      		<NavLink to='/something'>ffef</NavLink> 
-      		<NavLink to='addSmurf'>add Smurf</NavLink>
       	</Navbar>
       	</Navbar>
     );

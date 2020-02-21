@@ -13,14 +13,6 @@ const inp ={
 
 
 
-const form ={
-display:'flex',
-flexDirection:"column",
-justifyContent:'center',
-alignItems:"center",
-gridGap:"15px",
-
-}
 
 
 const AddingSmurfs = (props) => {
@@ -33,7 +25,7 @@ const {smurfs,addSmurfName, addSmurfAge,addSmurfHeight, addSmurf} = useContext(S
 
 console.log("wdwd",smurfs)
   return (
-    <Form style={form} onSubmit={addSmurf} method="get">
+    <Form  onSubmit={addSmurf} className="formio">
     <Label htmlFor="name">
       <Input placeholder="name" name="name" bsSize="lg" style={inp} onChange={addSmurfName}/>
       </Label>
