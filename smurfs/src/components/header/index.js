@@ -6,6 +6,7 @@ import papaSmurf from '../img/papa-smurf.png'
 const navbar ={
 	flex:"1",
 	borderBottom:"solid",
+  backgroundColor:"rgba(250,250,250,.5)"
 
 }
 

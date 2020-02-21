@@ -4,6 +4,8 @@ import axios from 'axios'
 import SmurfContext from '../contexts/'
 import AddSmurf from '../form/'
 import { Alert , Container} from 'reactstrap';
+import bg from '../../img/bg.jpg'
+
 
 
 
@@ -16,6 +18,10 @@ const tab ={
   width:"400px"
 }
 
+document.querySelector("#root").style=`
+background-image:url(${bg})
+
+`
 
 const boxWithTabs ={
   width:'100%',
@@ -35,6 +41,8 @@ const [smurfName,setSmurfName] = useState('')
 const [smurfAge,setSmurfAge] = useState(Number)
 const [smurfHeight,setSmurfHeight] = useState('')
 const [smurfs,setSmurfs] = useState([])
+
+//state is above and i will sare it using conext api
 
   useEffect(()=>{
         axios.get("http://localhost:3333/smurfs/").then(wtf=>{
