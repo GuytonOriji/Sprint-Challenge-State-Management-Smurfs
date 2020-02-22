@@ -88,6 +88,13 @@ const [smurfs,setSmurfs] = useState([])
           name:smurfName,
           age:smurfAge,
           height:smurfHeight,
+         }).then(res=>{
+            console.log("okokokfkkkkokok",res)
+            setSmurfs([...smurfs,{
+          name:smurfName,
+          age:smurfAge,
+          height:smurfHeight,
+         }])
          }).catch(err=>{
           alert(`please fill it in at least halfway right: ${err}`)
          })
@@ -98,6 +105,8 @@ const [smurfs,setSmurfs] = useState([])
           age:smurfAge,
           height:smurfHeight,
          })
+
+        e.target.reset()
 
   }
 
