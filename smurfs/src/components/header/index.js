@@ -1,6 +1,7 @@
 import React from 'react'
 import {Navbar} from 'reactstrap'
 import papaSmurf from '../img/papa-smurf.png'
+import brainySmurf from '../img/brainy-smurf.png'
  import {NavLink} from 'react-router-dom'
 
 const navbar ={
@@ -21,8 +22,7 @@ const lilnavbar ={
 
 
  const fig ={
-	flex:".5",
-	display:"flex",
+
 
 
 }
@@ -41,9 +41,9 @@ class Header extends React.Component {
       	<figure style={fig}>
       	<img src={papaSmurf} alt='smurf' width="100px" height="100px"/>
       	</figure>
-      		<Navbar className="navbar" style={lilnavbar}>
-      		<NavLink to='/'>Home</NavLink>
-      	</Navbar>
+      	<figure style={fig}>
+        <img src={brainySmurf} alt='smurf' width="100px" height="100px"/>
+        </figure>
       	</Navbar>
     );
   }

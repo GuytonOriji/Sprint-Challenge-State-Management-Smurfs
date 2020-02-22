@@ -11,12 +11,23 @@ const inp ={
   width:"50%"
 }
 
-const btnz = {
-  display:"flex",
-  gridGap:"10px"
+
+
+const hhBorder ={
+  width:"100%",
+  lineHeight:'.1em',
+   display:'flex',
+   justifyContent:'center',
+   alignItems:'center',
+   borderTop:'double 4px',
+   borderBottom:'dashed 4px',
 }
 
+const hh ={
+  color:'azure',
+  textShadow:'0 0 10px #000',
 
+}
 
 const AddingSmurfs = (props) => {
 
@@ -28,13 +39,14 @@ const {smurfs,addSmurfName, addSmurfAge,addSmurfHeight, addSmurf} = useContext(S
 
   return (
     <Form  onSubmit={addSmurf} className="formio">
+    <span style={hhBorder}><h1 style={hh}>ADD A SMURF HERE</h1></span>
     <Label htmlFor="name">
       <Input placeholder="name" name="name" bsSize="lg" style={inp} onChange={addSmurfName}/>
       </Label>
 
     <Label htmlFor="age">
       <Input type='number' placeholder="age" name="age" 
-       bsSize="lg" style={inp} maxlength='400' minlength='1'
+       bsSize="lg" style={inp} maxLength='400' minLength='1'
         onChange={addSmurfAge}/>
       </Label>
 
@@ -43,13 +55,8 @@ const {smurfs,addSmurfName, addSmurfAge,addSmurfHeight, addSmurf} = useContext(S
         onChange={addSmurfHeight}/>
       </Label>
      
-     <div style={btnz}>
-     <aside>
-      <Button type="submit" color='success'>add Smurf</Button>
-      </aside>
-      <aside>
-      <Button type="button" color='info' onClick={()=>window.location.reload()}>see new vilage</Button>
-      </aside>
+     <div className='btnBox'>
+      <Button type="submit" color='info'>add Smurf</Button>
       </div>
     </Form>
   );
